@@ -1,11 +1,13 @@
 //Prendo il button 'start'
-let buttonElement = document.querySelector('#start');
-console.log(buttonElement);
+const buttonElement = document.querySelector('#start');
 
 buttonElement.addEventListener('click', function () {
 
     const gridElement = document.querySelector('#grid');
-    console.log(gridElement);
+
+    //Reset
+    gridElement.innerHTML = '';
+    console.clear();
 
     let userLevel = 100;
 
@@ -14,7 +16,8 @@ buttonElement.addEventListener('click', function () {
         const myElement = document.createElement('div');
         myElement.classList.add('box');
         myElement.innerHTML = i + 1;
-        console.log(myElement);
+
+        gridElement.append(myElement)
 
     }
 
