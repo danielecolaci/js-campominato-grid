@@ -19,6 +19,13 @@ buttonElement.addEventListener('click', function () {
 
         gridElement.append(myElement)
 
+        myElement.addEventListener('click', function () {
+            myElement.classList.add('active');
+
+            console.log(myElement.innerHTML);
+
+        })
+
     }
 
 
