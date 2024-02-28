@@ -1,6 +1,8 @@
 //Prendo il button 'start'
 const buttonElement = document.querySelector('#start');
 
+const select = document.getElementById('level');
+
 buttonElement.addEventListener('click', function () {
 
     const gridElement = document.querySelector('#grid');
@@ -9,7 +11,27 @@ buttonElement.addEventListener('click', function () {
     gridElement.innerHTML = '';
     console.clear();
 
-    let userLevel = 100;
+    let userLevel = select.value;
+
+    switch (userLevel) {
+        case 'high':
+            userLevel = 100;
+            console.log(userLevel);
+            break;
+        case 'med':
+            userLevel = 81;
+            console.log(userLevel);
+            document.querySelector('.container').className = 'container med';
+            break;
+        case 'low':
+            userLevel = 49;
+            console.log(userLevel);
+            document.querySelector('.container').className = 'container low';
+            break;
+        default:
+            break;
+    }
+
 
     for (let i = 0; i < userLevel; i++) {
 

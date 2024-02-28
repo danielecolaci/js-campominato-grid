@@ -47,6 +47,14 @@ main {
     width: 800px;
 }
 
+.container.med {
+    width: 720px;
+}
+
+.container.low {
+    width: 560px;
+}
+
 #grid {
     display: flex;
     flex-wrap: wrap;
@@ -88,6 +96,14 @@ footer {
 
     .container {
         width: 500px;
+    }
+
+    .container.med {
+        width: 450px;
+    }
+
+    .container.low {
+        width: 350px;
     }
 
     .box {
