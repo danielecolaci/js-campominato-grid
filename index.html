@@ -6,21 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campo Minato</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" href="./assets/img/Minefield-icon.png">
 </head>
 
 <body>
 
     <header>
-        <button id="start">Start</button>
+        <div class="logo">
+            <img src="./assets/img/mobile-logo.png" alt="">
+            <h1>Campo Minato</h1>
+        </div>
+        <div class="command">
+            <select name="level" id="level">
+                <option value="high" id="high">Level 1</option>
+                <option value="med" id="med">Level 2</option>
+                <option value="low" id="low">Level 3</option>
+            </select>
+            <button id="start">Start</button>
+        </div>
     </header>
+    <main>
+        <div class="container">
 
-    <div class="container">
+            <div id="grid">
 
-        <div id="grid">
+            </div>
 
         </div>
-
-    </div>
+    </main>
+    <footer>
+        <h5>Made by Daniele Colaci</h5>
+    </footer>
 
     <script src="./assets/js/main.js"></script>
 </body>
