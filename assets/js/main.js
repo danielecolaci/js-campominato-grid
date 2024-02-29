@@ -1,6 +1,5 @@
 //Prendo il button 'start'
 const buttonElement = document.querySelector('#start');
-
 const select = document.getElementById('level');
 
 buttonElement.addEventListener('click', function () {
@@ -33,7 +32,6 @@ buttonElement.addEventListener('click', function () {
             break;
     }
 
-
     for (let i = 0; i < userLevel; i++) {
 
         const myElement = document.createElement('div');
@@ -50,6 +48,5 @@ buttonElement.addEventListener('click', function () {
         })
 
     }
-
 
 })

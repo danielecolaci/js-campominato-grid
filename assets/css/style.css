@@ -57,6 +57,14 @@ main {
     margin: 5px;
 }
 
+.fa-apple-whole {
+    color: #00E165;
+}
+
+.fa-user-doctor {
+    color: rgb(192, 1, 1);
+}
+
 .container {
     width: 800px;
 }
@@ -77,7 +85,7 @@ main {
 .box {
     width: 80px;
     height: 80px;
-    background-color: #001533;
+    background-color: grey;
     color: white;
     border: 1px solid white;
     display: flex;
@@ -97,10 +105,7 @@ footer {
     margin: 20px auto;
     display: flex;
     justify-content: center;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    bottom: 20px;
+    color: grey;
 }
 
 /* /Footer */
