@@ -2,6 +2,8 @@
 const buttonElement = document.querySelector('#start');
 const select = document.getElementById('level');
 
+let score = 0
+
 buttonElement.addEventListener('click', function () {
 
     const gridElement = document.querySelector('#grid');
@@ -35,7 +37,6 @@ buttonElement.addEventListener('click', function () {
     const numberArray = createRandomNumbers();
     console.log(numberArray);
 
-
     for (let i = 0; i < userLevel; i++) {
 
         const myElement = document.createElement('div');
@@ -57,10 +58,13 @@ buttonElement.addEventListener('click', function () {
                 myElement.classList.add('error');
                 myElement.innerHTML = '';
                 myElement.append(doctorElement);
+                gameOver();
             } else {
                 myElement.classList.add('active');
                 myElement.innerHTML = '';
                 myElement.append(appleElement);
+                score++;
+                console.log(score);
             }
 
         })
@@ -68,6 +72,7 @@ buttonElement.addEventListener('click', function () {
     }
 
 })
+
 
 //Funzione numeri casuali
 
@@ -80,4 +85,9 @@ function createRandomNumbers() {
         }
     }
     return numberArray;
+}
+
+//Funzione fine del gioco
+function gameOver() {
+    alert('Hai perso! Punti fatti: ' + score);
 }
