@@ -2,6 +2,7 @@
 const buttonElement = document.querySelector('#start');
 const select = document.getElementById('level');
 const resetElement = document.querySelector('#reset');
+resetElement.addEventListener('click', resetGame)
 
 let score = 0
 
@@ -89,6 +90,18 @@ function createRandomNumbers(userLevel) {
     }
     return numberArray;
 }
+
+//Funzione Reset
+function resetGame() {
+    const gridElement = document.querySelector('#grid');
+
+    gridElement.innerHTML = '';
+    score = 0;
+    buttonElement.click();
+
+    resetElement.style.display = 'none';
+}
+
 
 //Funzione fine del gioco
 function gameOver() {
