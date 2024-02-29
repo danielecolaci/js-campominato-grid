@@ -15,22 +15,26 @@ buttonElement.addEventListener('click', function () {
     switch (userLevel) {
         case 'low':
             userLevel = 100;
-            console.log(userLevel);
+            console.log('Numero Caselle: ' + userLevel);
             document.querySelector('.container').className = 'container';
             break;
         case 'med':
             userLevel = 81;
-            console.log(userLevel);
+            console.log('Numero Caselle: ' + userLevel);
             document.querySelector('.container').className = 'container med';
             break;
         case 'high':
             userLevel = 49;
-            console.log(userLevel);
+            console.log('Numero Caselle: ' + userLevel);
             document.querySelector('.container').className = 'container low';
             break;
         default:
             break;
     }
+
+    const numberArray = createRandomNumbers();
+    console.log(numberArray);
+
 
     for (let i = 0; i < userLevel; i++) {
 
@@ -49,10 +53,21 @@ buttonElement.addEventListener('click', function () {
             myElement.innerHTML = '';
             myElement.append(iconElement);
 
-            console.log(myElement.innerHTML);
-
         })
 
     }
 
 })
+
+//Funzione numeri casuali
+
+function createRandomNumbers() {
+    const numberArray = [];
+    while (numberArray.length < 16) {
+        let numb = Math.floor(Math.random() * 16) + 1;
+        if (!numberArray.includes(numb)) {
+            numberArray.push(numb);
+        }
+    }
+    return numberArray;
+}

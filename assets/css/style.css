@@ -95,6 +95,10 @@ i {
     background-color: #00E165;
 }
 
+.error {
+    background-color: #dd0303;
+}
+
 /* /Main */
 /* Footer */
 
@@ -109,10 +113,6 @@ footer {
 /* Responsive */
 
 @media screen and (max-width: 968px) {
-
-    main {
-        height: 500px;
-    }
 
     .container {
         width: 500px;
