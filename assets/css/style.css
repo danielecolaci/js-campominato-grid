@@ -55,14 +55,11 @@ main {
 .title i {
     font-size: 24px;
     margin: 5px;
+    color: black;
 }
 
-.fa-apple-whole {
-    color: #00E165;
-}
-
-.fa-user-doctor {
-    color: rgb(192, 1, 1);
+i {
+    color: white;
 }
 
 .container {

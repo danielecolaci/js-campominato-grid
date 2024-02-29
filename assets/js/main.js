@@ -38,10 +38,16 @@ buttonElement.addEventListener('click', function () {
         myElement.classList.add('box');
         myElement.innerHTML = i + 1;
 
-        gridElement.append(myElement)
+        gridElement.append(myElement);
+
+        const iconElement = document.createElement('i');
+        iconElement.classList.add('fa-solid', 'fa-apple-whole');
 
         myElement.addEventListener('click', function () {
             myElement.classList.add('active');
+
+            myElement.innerHTML = '';
+            myElement.append(iconElement);
 
             console.log(myElement.innerHTML);
 
