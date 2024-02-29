@@ -14,16 +14,17 @@ buttonElement.addEventListener('click', function () {
     let userLevel = select.value;
 
     switch (userLevel) {
-        case 'high':
+        case 'low':
             userLevel = 100;
             console.log(userLevel);
+            document.querySelector('.container').className = 'container';
             break;
         case 'med':
             userLevel = 81;
             console.log(userLevel);
             document.querySelector('.container').className = 'container med';
             break;
-        case 'low':
+        case 'high':
             userLevel = 49;
             console.log(userLevel);
             document.querySelector('.container').className = 'container low';
