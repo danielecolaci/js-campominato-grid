@@ -111,7 +111,7 @@ function resetGame() {
 
 //Funzione fine del gioco
 function gameOver() {
-    alert('Hai perso! Punti fatti: ' + score);
+    alert('Game Over! Score: ' + score);
 
     const gridElement = document.querySelector('#grid');
     const allBoxElement = document.getElementsByClassName('box');
@@ -126,6 +126,6 @@ function gameOver() {
 }
 
 function endGame() {
-    alert('Hai vinto!!!!!!!!!!!');
+    alert('Congratulation. You win!');
     resetElement.style.display = 'block';
 }

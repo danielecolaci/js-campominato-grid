@@ -56,7 +56,6 @@ select option {
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
@@ -69,12 +68,16 @@ main {
     text-align: center;
 }
 
-.title i {
-    font-size: 24px;
-    margin: 20px;
+.icons {
+    margin-top: 10px;
+    padding: 4px 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
 }
 
 i {
+    font-size: 24px;
+    margin: 10px;
     color: white;
 }
 
