@@ -44,14 +44,24 @@ buttonElement.addEventListener('click', function () {
 
         gridElement.append(myElement);
 
-        const iconElement = document.createElement('i');
-        iconElement.classList.add('fa-solid', 'fa-apple-whole');
+        //Creo le icone
+        const appleElement = document.createElement('i');
+        appleElement.classList.add('fa-solid', 'fa-apple-whole');
 
+        const doctorElement = document.createElement('i');
+        doctorElement.classList.add('fa-solid', 'fa-user-doctor');
+
+        //Funzione click
         myElement.addEventListener('click', function () {
-            myElement.classList.add('active');
-
-            myElement.innerHTML = '';
-            myElement.append(iconElement);
+            if (numberArray.includes(i + 1)) {
+                myElement.classList.add('error');
+                myElement.innerHTML = '';
+                myElement.append(doctorElement);
+            } else {
+                myElement.classList.add('active');
+                myElement.innerHTML = '';
+                myElement.append(appleElement);
+            }
 
         })
 
@@ -64,7 +74,7 @@ buttonElement.addEventListener('click', function () {
 function createRandomNumbers() {
     const numberArray = [];
     while (numberArray.length < 16) {
-        let numb = Math.floor(Math.random() * 16) + 1;
+        let numb = Math.floor(Math.random() * 100) + 1;
         if (!numberArray.includes(numb)) {
             numberArray.push(numb);
         }
