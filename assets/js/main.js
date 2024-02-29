@@ -1,10 +1,13 @@
 //Prendo il button 'start'
 const buttonElement = document.querySelector('#start');
 const select = document.getElementById('level');
+let pointElement = document.getElementById('point');
 const resetElement = document.querySelector('#reset');
-resetElement.addEventListener('click', resetGame)
+resetElement.addEventListener('click', resetGame);
 
-let score = 0
+let numberArray = [];
+
+let score = 0;
 
 buttonElement.addEventListener('click', function () {
 
@@ -13,6 +16,8 @@ buttonElement.addEventListener('click', function () {
     //Reset
     gridElement.innerHTML = '';
     console.clear();
+    score = 0;
+    pointElement.innerHTML = '';
 
     let userLevel = select.value;
 
@@ -66,6 +71,7 @@ buttonElement.addEventListener('click', function () {
                 myElement.innerHTML = '';
                 myElement.append(appleElement);
                 score++;
+                pointElement.innerHTML = ' ' + score;
                 if (score === userLevel - 16) {
                     endGame();
                 }
@@ -81,7 +87,6 @@ buttonElement.addEventListener('click', function () {
 //Funzione numeri casuali
 
 function createRandomNumbers(userLevel) {
-    const numberArray = [];
     while (numberArray.length < 16) {
         let numb = Math.floor(Math.random() * userLevel) + 1;
         if (!numberArray.includes(numb)) {
@@ -98,6 +103,7 @@ function resetGame() {
     gridElement.innerHTML = '';
     score = 0;
     buttonElement.click();
+    pointElement.innerHTML = '';
 
     resetElement.style.display = 'none';
 }
@@ -106,6 +112,16 @@ function resetGame() {
 //Funzione fine del gioco
 function gameOver() {
     alert('Hai perso! Punti fatti: ' + score);
+
+    const gridElement = document.querySelector('#grid');
+    const allBoxElement = document.getElementsByClassName('box');
+
+    for (i = 1; i < allBoxElement.length; i++) {
+        if (numberArray.includes(parseInt(allBoxElement[i].innerText))) {
+            allBoxElement[i].classList.add("error");
+        }
+    }
+
     resetElement.style.display = 'block';
 }
 
