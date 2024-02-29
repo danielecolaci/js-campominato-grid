@@ -1,6 +1,7 @@
 //Prendo il button 'start'
 const buttonElement = document.querySelector('#start');
 const select = document.getElementById('level');
+const resetElement = document.querySelector('#reset');
 
 let score = 0
 
@@ -34,7 +35,7 @@ buttonElement.addEventListener('click', function () {
             break;
     }
 
-    const numberArray = createRandomNumbers();
+    const numberArray = createRandomNumbers(userLevel);
     console.log(numberArray);
 
     for (let i = 0; i < userLevel; i++) {
@@ -64,7 +65,9 @@ buttonElement.addEventListener('click', function () {
                 myElement.innerHTML = '';
                 myElement.append(appleElement);
                 score++;
-                console.log(score);
+                if (score === userLevel - 16) {
+                    endGame();
+                }
             }
 
         })
@@ -76,10 +79,10 @@ buttonElement.addEventListener('click', function () {
 
 //Funzione numeri casuali
 
-function createRandomNumbers() {
+function createRandomNumbers(userLevel) {
     const numberArray = [];
     while (numberArray.length < 16) {
-        let numb = Math.floor(Math.random() * 100) + 1;
+        let numb = Math.floor(Math.random() * userLevel) + 1;
         if (!numberArray.includes(numb)) {
             numberArray.push(numb);
         }
@@ -90,4 +93,10 @@ function createRandomNumbers() {
 //Funzione fine del gioco
 function gameOver() {
     alert('Hai perso! Punti fatti: ' + score);
+    resetElement.style.display = 'block';
+}
+
+function endGame() {
+    alert('Hai vinto!!!!!!!!!!!');
+    resetElement.style.display = 'block';
 }
