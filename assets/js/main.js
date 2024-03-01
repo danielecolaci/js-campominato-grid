@@ -46,11 +46,11 @@ function startGame() {
 
     for (let i = 0; i < userLevel; i++) {
 
-        const myElement = document.createElement('div');
-        myElement.classList.add('box');
-        myElement.innerHTML = i + 1;
+        const boxElement = document.createElement('div');
+        boxElement.classList.add('box');
+        boxElement.innerHTML = i + 1;
 
-        gridElement.append(myElement);
+        gridElement.append(boxElement);
 
         //Creo le icone
         const appleElement = document.createElement('i');
@@ -60,16 +60,16 @@ function startGame() {
         doctorElement.classList.add('fa-solid', 'fa-user-doctor');
 
         //Funzione click
-        myElement.addEventListener('click', function () {
+        boxElement.addEventListener('click', function () {
             if (numberArray.includes(i + 1)) {
-                myElement.classList.add('error');
-                myElement.innerHTML = '';
-                myElement.append(doctorElement);
+                boxElement.classList.add('error');
+                boxElement.innerHTML = '';
+                boxElement.append(doctorElement);
                 gameOver();
             } else {
-                myElement.classList.add('active');
-                myElement.innerHTML = '';
-                myElement.append(appleElement);
+                boxElement.classList.add('active');
+                boxElement.innerHTML = '';
+                boxElement.append(appleElement);
                 score++;
                 pointElement.innerHTML = ' ' + score;
                 if (score === userLevel - 16) {
@@ -98,7 +98,7 @@ function gameOver() {
     const gridElement = document.querySelector('#grid');
     const allBoxElement = document.getElementsByClassName('box');
 
-    for (let i = 1; i < allBoxElement.length; i++) {
+    for (let i = 0; i < allBoxElement.length; i++) {
         if (numberArray.includes(parseInt(allBoxElement[i].innerText))) {
             allBoxElement[i].classList.add("error");
         }
