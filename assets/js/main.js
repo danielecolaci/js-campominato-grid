@@ -1,16 +1,16 @@
-//Prendo il button 'start'
+//Set
 const buttonElement = document.querySelector('#start');
 const select = document.getElementById('level');
 let pointElement = document.getElementById('point');
-const resetElement = document.querySelector('#reset');
-resetElement.addEventListener('click', resetGame);
 
 let numberArray = [];
 
 let score = 0;
 
-buttonElement.addEventListener('click', function () {
+buttonElement.addEventListener('click', startGame);
 
+//Funzione Start
+function startGame() {
     const gridElement = document.querySelector('#grid');
 
     //Reset
@@ -22,26 +22,26 @@ buttonElement.addEventListener('click', function () {
     let userLevel = select.value;
 
     switch (userLevel) {
-        case 'low':
+        case 'easy':
             userLevel = 100;
-            console.log('Numero Caselle: ' + userLevel);
+            console.log('Box Number: ' + userLevel);
             document.querySelector('.container').className = 'container';
             break;
-        case 'med':
+        case 'medium':
             userLevel = 81;
-            console.log('Numero Caselle: ' + userLevel);
+            console.log('Box Number: ' + userLevel);
             document.querySelector('.container').className = 'container med';
             break;
-        case 'high':
+        case 'expert':
             userLevel = 49;
-            console.log('Numero Caselle: ' + userLevel);
+            console.log('Box Number: ' + userLevel);
             document.querySelector('.container').className = 'container low';
             break;
         default:
             break;
     }
 
-    const numberArray = createRandomNumbers(userLevel);
+    numberArray = createRandomNumbers(userLevel);
     console.log(numberArray);
 
     for (let i = 0; i < userLevel; i++) {
@@ -76,16 +76,11 @@ buttonElement.addEventListener('click', function () {
                     endGame();
                 }
             }
-
         })
-
     }
-
-})
-
+}
 
 //Funzione numeri casuali
-
 function createRandomNumbers(userLevel) {
     while (numberArray.length < 16) {
         let numb = Math.floor(Math.random() * userLevel) + 1;
@@ -96,36 +91,20 @@ function createRandomNumbers(userLevel) {
     return numberArray;
 }
 
-//Funzione Reset
-function resetGame() {
-    const gridElement = document.querySelector('#grid');
-
-    gridElement.innerHTML = '';
-    score = 0;
-    buttonElement.click();
-    pointElement.innerHTML = '';
-
-    resetElement.style.display = 'none';
-}
-
-
-//Funzione fine del gioco
+//Funzioni fine del gioco
 function gameOver() {
     alert('Game Over! Score: ' + score);
 
     const gridElement = document.querySelector('#grid');
     const allBoxElement = document.getElementsByClassName('box');
 
-    for (i = 1; i < allBoxElement.length; i++) {
+    for (let i = 1; i < allBoxElement.length; i++) {
         if (numberArray.includes(parseInt(allBoxElement[i].innerText))) {
             allBoxElement[i].classList.add("error");
         }
     }
-
-    resetElement.style.display = 'block';
 }
 
 function endGame() {
     alert('Congratulation. You win!');
-    resetElement.style.display = 'block';
 }
