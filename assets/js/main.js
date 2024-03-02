@@ -82,6 +82,8 @@ function startGame() {
 
 //Funzione numeri casuali
 function createRandomNumbers(userLevel) {
+    numberArray = [];
+
     while (numberArray.length < 16) {
         let numb = Math.floor(Math.random() * userLevel) + 1;
         if (!numberArray.includes(numb)) {
