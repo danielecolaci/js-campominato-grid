@@ -9,32 +9,6 @@ let score = 0;
 
 buttonElement.addEventListener('click', startGame);
 
-//Creo le icone
-const appleElement = document.createElement('i');
-appleElement.classList.add('fa-solid', 'fa-apple-whole');
-
-const doctorElement = document.createElement('i');
-doctorElement.classList.add('fa-solid', 'fa-user-doctor');
-
-//Funzione Click
-function boxClick(i, boxElement, userLevel) {
-    if (numberArray.includes(i + 1)) {
-        boxElement.classList.add('error');
-        boxElement.innerHTML = '';
-        boxElement.append(doctorElement);
-        gameOver();
-    } else {
-        boxElement.classList.add('active');
-        boxElement.innerHTML = '';
-        boxElement.append(appleElement);
-        score++;
-        pointElement.innerHTML = ' ' + score;
-        if (score === userLevel - 16) {
-            endGame();
-        }
-    }
-}
-
 //Funzione Start
 function startGame() {
     const gridElement = document.querySelector('#grid');
@@ -78,9 +52,30 @@ function startGame() {
 
         gridElement.append(boxElement);
 
+        //Creo le icone
+        const appleElement = document.createElement('i');
+        appleElement.classList.add('fa-solid', 'fa-apple-whole');
+
+        const doctorElement = document.createElement('i');
+        doctorElement.classList.add('fa-solid', 'fa-user-doctor');
+
         //Funzione click
         boxElement.addEventListener('click', function () {
-            boxClick(i, boxElement, userLevel);
+            if (numberArray.includes(i + 1)) {
+                boxElement.classList.add('error');
+                boxElement.innerHTML = '';
+                boxElement.append(doctorElement);
+                gameOver();
+            } else {
+                boxElement.classList.add('active');
+                boxElement.innerHTML = '';
+                boxElement.append(appleElement);
+                score++;
+                pointElement.innerHTML = ' ' + score;
+                if (score === userLevel - 16) {
+                    endGame();
+                }
+            }
         })
     }
 }
